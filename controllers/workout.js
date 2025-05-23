@@ -27,7 +27,6 @@ module.exports.addWorkout = async (req, res) => {
 
     const savedWorkout = await newWorkout.save();
 
-    // ✅ Return raw MongoDB document (like in your screenshot)
     return res.status(201).json(savedWorkout);
 
   } catch (error) {
