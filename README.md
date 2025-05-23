@@ -4,8 +4,7 @@
 
 | Role       | Email              | Password   |
 |------------|--------------------|------------|
-| **Admin**  | admin@example.com  | Admin@123  |
-| **User**   | user@example.com   | User@123   |
+| **User**   | kenbegornia@mail.com   | ken12345   |
 
 Use these accounts to test API functionality via Postman or frontend.
 

@@ -43,9 +43,9 @@ module.exports.addWorkout = async (req, res) => {
 
 // Get Workout
 module.exports.getMyWorkout = (req, res) => {
-  Workout.find({})
+  Workout.find({ userId: req.user.id })
     .then(workouts => {
-      console.log("Workout found:", workouts);
+      console.log("User's Workouts found:", workouts);
       res.status(200).json(workouts);
     })
     .catch(error => errorHandler(error, req, res));
