@@ -1,4 +1,5 @@
 // Dependencies and Modules
+const mongoose = require('mongoose');
 const bcrypt = require("bcrypt");
 const Workout = require('../models/Workout');
 const auth = require("../auth");
@@ -90,6 +91,13 @@ module.exports.deleteWorkout = async (req, res) => {
     const workoutId = req.params.id;
     const userId = req.user.id;
 
+    console.log("Delete request for workout:", workoutId);
+    console.log("Authenticated user:", userId);
+
+    if (!mongoose.Types.ObjectId.isValid(workoutId)) {
+      return res.status(400).json({ error: "Invalid workout ID" });
+    }
+
     const workout = await Workout.findById(workoutId);
 
     if (!workout) {
@@ -101,14 +109,14 @@ module.exports.deleteWorkout = async (req, res) => {
     }
 
     await Workout.findByIdAndDelete(workoutId);
-
     return res.status(200).json({ message: "Workout deleted successfully" });
 
   } catch (error) {
-    console.error(error);
+    console.error("Delete workout error:", error);
     return res.status(500).json({ error: "Server error" });
   }
 };
+
 
 
 // Complete Workout
