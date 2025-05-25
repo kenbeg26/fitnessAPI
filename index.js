@@ -23,7 +23,9 @@ const port = process.env.PORT || 4000;
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://fitness-app-client-xi-liart.vercel.app/'
+    'https://fitness-app-client-xi-liart.vercel.app',
+    'https://fitness-app-client-git-master-john-kenneths-projects.vercel.app',
+    'https://fitness-app-client-oj0t6fthl-john-kenneths-projects.vercel.app'
 
   ],
   credentials: true,
