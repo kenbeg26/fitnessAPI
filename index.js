@@ -18,17 +18,17 @@ require('dotenv').config();
 // Server Setup
 // Creates an "app" variable that stores the result of the "express" function that initializes our express application and allows us access to different methods that will make backend creation easy
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 4000;
 
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://mte-fitnessapi.onrender.com',
     'https://fitness-app-client-oohgd80wa-john-kenneths-projects.vercel.app'
 
   ],
   credentials: true,
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 // Middleware to parse JSON
@@ -36,6 +36,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 app.options('/', cors(corsOptions)); 
+app.get("/test", (req, res) => {
+  res.json({ message: "CORS test passed" });
+});
+
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_STRING);
