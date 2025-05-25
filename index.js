@@ -23,8 +23,8 @@ const port = 3000;
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://mte-fitnessapi.onrender.com/',
-    'https://fitness-app-client-oohgd80wa-john-kenneths-projects.vercel.app/'
+    'https://mte-fitnessapi.onrender.com',
+    'https://fitness-app-client-oohgd80wa-john-kenneths-projects.vercel.app'
 
   ],
   credentials: true,
