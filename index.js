@@ -21,7 +21,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: ['http://localhost:3000'],
+  origin: [
+    'http://localhost:3000',
+    'https://mte-fitnessapi.onrender.com',
+    'https://fitness-app-client-n4sksdj2j-john-kenneths-projects.vercel.app/'
+
+  ],
   credentials: true,
   optionsSuccessStatus: 200
 };
@@ -30,6 +35,7 @@ const corsOptions = {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
+app.use(cors(corsOptions)); 
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_STRING);
