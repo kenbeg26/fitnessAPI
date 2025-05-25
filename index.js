@@ -23,7 +23,7 @@ const port = process.env.PORT || 4000;
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://fitness-app-client-n689770sj-john-kenneths-projects.vercel.app'
+    'https://fitness-app-client-xi-liart.vercel.app/'
 
   ],
   credentials: true,
@@ -35,7 +35,7 @@ const corsOptions = {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
-app.options('/', cors(corsOptions)); 
+app.options('/', cors(corsOptions));
 app.get("/test", (req, res) => {
   res.json({ message: "CORS test passed" });
 });
